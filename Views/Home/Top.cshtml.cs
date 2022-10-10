@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-namespace final_project.Views.ViewAllProduct
+namespace final_backend.Views.Home
 {
-    public class Index : PageModel
+    public class Top : PageModel
     {
-        private readonly ILogger<Index> _logger;
+        private readonly ILogger<Top> _logger;
 
-        public Index(ILogger<Index> logger)
+        public Top(ILogger<Top> logger)
         {
             _logger = logger;
         }

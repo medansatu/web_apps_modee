@@ -14,13 +14,13 @@ using Microsoft.Extensions.Logging;
 namespace final_project.Controllers
 {
     // [Route("[controller]")]
-    public class ViewAllProductController : Controller
+    public class HomeController : Controller
     {
-        private readonly ILogger<ViewAllProductController> _logger;
+         private readonly ILogger<HomeController> _logger;
         private readonly IProductRepository _productRepo;
         private readonly ICategoryRepository _catRepo;
 
-        public ViewAllProductController(ILogger<ViewAllProductController> logger, IProductRepository productRepo, ICategoryRepository catRepo)
+        public HomeController(ILogger<HomeController> logger, IProductRepository productRepo, ICategoryRepository catRepo)
         {
             _logger = logger;
             _productRepo = productRepo;
@@ -32,8 +32,15 @@ namespace final_project.Controllers
             ServiceResponse<List<ProductDTO>> products = await _productRepo.GetAllItem();
             ServiceResponse<List<CategoryDTO>> categories = await _catRepo.GetAllCategory();
             // List<ProductDTO> model = products.Data;
-            List<CategoryDTO> model = categories.Data;
+            List<ProductDTO> model = products.Data;
             return View(model);
+        }
+
+        public async Task<IActionResult> Top()
+        {
+            ServiceResponse<List<ProductDTO>> products = await _productRepo.GetAllItem();
+            var seletedProduct = products.Data.Where(i => i.Category.Id == 1).ToList();
+            return View(seletedProduct);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
