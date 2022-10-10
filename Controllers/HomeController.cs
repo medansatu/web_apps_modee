@@ -31,8 +31,9 @@ namespace final_project.Controllers
         {
             ServiceResponse<List<ProductDTO>> products = await _productRepo.GetAllItem();
             ServiceResponse<List<CategoryDTO>> categories = await _catRepo.GetAllCategory();
+            var lastProd = products.Data.Last();
             // List<ProductDTO> model = products.Data;
-            List<ProductDTO> model = products.Data;
+            ProductDTO model = lastProd;
             return View(model);
         }
 

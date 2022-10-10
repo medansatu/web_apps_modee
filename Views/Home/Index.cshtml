@@ -1,5 +1,5 @@
 ﻿@* @page *@
-@model IEnumerable<final_project.Dtos.Product.ProductDTO>
+@model final_project.Dtos.Product.ProductDTO
     
 @{
     ViewData["Title"] = "Index";
@@ -7,13 +7,9 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<div>
-    @foreach (var item in Model)
-    {
-        <p> 
-            @Html.DisplayNameFor(modelItem => item.ProductName)
-            @Html.DisplayFor(modelItem => item.ProductName)            
+<div>    
+
+    <p>
+        @Html.DisplayFor(model => model.ProductName)
         </p>
-        <br>
-    }
 </div>
