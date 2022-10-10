@@ -1,0 +1,16 @@
+@* @page *@
+@model final_project.Dtos.User.UserDTO
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <p>
+        @Html.DisplayFor(item => Model.Name)
+    </p>
+    <p>
+        @Html.DisplayFor(item => Model.Token)
+    </p>
+</div>
