@@ -1,18 +1,26 @@
 ﻿@* @page *@
+
 @model IEnumerable<final_project.Dtos.Product.ProductDTO>
     
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "New Arrival";
+    ViewData["ProductName"] = "+J Silk Bow Tie Long\n Sleeve Blouse";
+    ViewData["overview"] = "An elegant 100% silk bow tie blouse";
+    ViewData["text"] = "Simplicity, made even better. We seek out innovative\n material and fabrication methods to create our clothing-- \n and if they don't exist, we invent it.";
 }
 
 <h1>@ViewData["Title"]</h1>
+<h2>@ViewData["ProductName"]</h2>
+<p1>@ViewData["overview"]</p1>
+<br>@ViewData["text"]</br>
+
 
 <div>
     @foreach (var item in Model)
     {
         <p> 
-            @Html.DisplayNameFor(modelItem => item.ProductName)
-            @Html.DisplayFor(modelItem => item.ProductName)            
+            @* @Html.DisplayNameFor(modelItem => item.ProductName) *@
+            @* @Html.DisplayFor(modelItem => item.ProductName)             *@
         </p>
         <br>
     }
