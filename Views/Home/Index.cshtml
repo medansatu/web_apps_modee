@@ -1,22 +1,29 @@
 ﻿@* @page *@
 @model final_project.Dtos.Product.ProductDTO
-    
-@{
-    ViewData["Title"] = "New Arrival";
-    ViewData["ProductName"] = "+J Silk Bow Tie Long\n Sleeve Blouse";
-    ViewData["overview"] = "An elegant 100% silk bow tie blouse";
-    ViewData["text"] = "Simplicity, made even better. We seek out innovative\n material and fabrication methods to create our clothing-- \n and if they don't exist, we invent it.";
+
+<html>
+<body style="background-color: #1e1e1e">
+<div class="container" style="background-color:#1e1e1e;">
+  <div class="row">
+    <div class="col align-self-start">
+        <h1 style="color:white;">New Arrival</h1>
+        <br>
+        <h3 style="color:white;">@Html.DisplayFor(model => model.ProductName)</h3>
+        <p style="color:white;">@Html.DisplayFor(model => model.Description)</p>
+        <br>
+        <br>
+        <br>
+        <h5 style="color:white;"><i> Simplicity, made even better. We seek out innovative <br> material and fabrication methods to create our clothing-- <br> and if they don't exist, we invent it.</i></h5>
+    </div>
+    <div class="col align-self-end">
+     div {
+  padding: 25px 50px;
 }
-
-<h1>@ViewData["Title"]</h1>
-<h2>@ViewData["ProductName"]</h2>
-<p1>@ViewData["overview"]</p1>
-<br>@ViewData["text"]</br>
-
-
-<div>    
-
-    <p>
-        @Html.DisplayFor(model => model.ProductName)
-        </p>
+      <img src="@Html.DisplayFor(model => model.ImageURL)" width="500" height="600" align=right>
+    </div>
+  </div>
+  <button type="button" class="btn" style = "background-color: #ff82c9;">View More </button>
 </div>
+</div>
+</body>
+</html>
