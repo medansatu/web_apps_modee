@@ -100,8 +100,19 @@ namespace final_project.Data.WishlistRepo
                 .Where(item => item.Wishlist == result)
                 .ToListAsync();
 
+            List<WishlistItemDTO> wishlistItemDTO = new List<WishlistItemDTO>();
             WishlistDTO wishlistDTO = _mapper.Map<WishlistDTO>(result);
 
+            foreach (var x in WishlistItem)
+            {
+                var product = await _context.Products.Where(item => item.Id == x.ProductId).FirstOrDefaultAsync();
+                WishlistItemDTO wishlistProduct = _mapper.Map<WishlistItemDTO>(x);
+                wishlistProduct.ProductName = product.ProductName;
+                wishlistProduct.ImageUrl = product.ImageURL;
+                wishlistItemDTO.Add(wishlistProduct);
+            }
+
+            wishlistDTO.WishlistItems = wishlistItemDTO;
             response.Data = wishlistDTO;
             response.Message = "Data Wishlist Retrieved";
 
