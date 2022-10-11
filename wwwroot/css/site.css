@@ -46,6 +46,28 @@ body {
       justify-content: center;
   }
 
-      .list-cards > li:hover {
+      .list-carts > li:hover {
           transform: scale(1.02);
       }
+
+      .list-carts {
+        display: list-item;
+        /* grid-template-columns: auto auto auto auto auto auto auto auto; */
+        grid-gap: 2rem;
+        justify-content: center;
+        margin-left: 0px;
+        margin-right: 10px;
+        /* padding-left: 0; */
+      }
+      
+        .list-carts > li {
+            height: 18rem;
+            width: 55rem;
+            position: relative;
+            background-size: cover;
+            /* border-radius: 0.5rem; */
+            list-style-type: none;
+            transition: 0.1s ease-out;
+            background-color: whitesmoke;
+            justify-content: center;
+        }

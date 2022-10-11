@@ -1,12 +1,27 @@
 @model final_project.Dtos.Cart.CartProductDTO
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "My Cart";
 }
 
-<h1>@ViewData["Title"]</h1>
 
-<div>           
-        @foreach (var item in Model.CartItemList)
+<body style="background-color: #1e1e1e">
+<div>        
+    <div class="row">
+    <div class="col align-self-start">
+    @* <h1 style="color:white; padding-bottom: 20px;">@ViewData["Title"]</h1> *@
+     <ul class="list-carts">
+    @foreach (var item in Model.CartItemList)
+    {   
+        <li> 
+            <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width=30% height=100% align=left>
+            <br>
+            <p style="padding-left:300px; padding-top:15px; color:black; font-size:16px"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>
+            <p style="padding-left:300px; color: black; font-size:15px"> Rp @Html.DisplayFor(modelItem => item.Price) </p>           
+        </li>
+        <br>    
+    }
+</ul> 
+        @* @foreach (var item in Model.CartItemList)
         {
             <p>
                 @Html.DisplayFor(modeItem => item.ProductName)
@@ -24,5 +39,7 @@
                 </form>
 
         }
-        <p> Total @Model.CartItemList.Sum(item => item.Price * item.Quantity) </p>
+        <p> Total @Model.CartItemList.Sum(item => item.Price * item.Quantity) </p> *@
+        <div class="col align-self-end"></div>
 </div>
+</body>
