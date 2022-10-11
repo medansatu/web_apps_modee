@@ -54,6 +54,13 @@ namespace final_project.Controllers
             return BadRequest(response);
         }
 
+        [HttpGet("NewArrival")]
+        public async Task<ActionResult<ServiceResponse<List<ProductDTO>>>> GetNewArrival()
+        {
+            var response = await _productRepo.GetNewArrival();
+
+            return Ok(response);
+        }
         
     }
 }

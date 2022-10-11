@@ -71,5 +71,27 @@ namespace final_project.Data.ProductRepo
 
             return response;
         }
+
+        public async Task<ServiceResponse<List<ProductDTO>>> GetNewArrival()
+        {
+            var response = new ServiceResponse<List<ProductDTO>>();
+
+            List<Product> allItem = await _context.Products
+                .Include(item => item.Category)
+                .ToListAsync();
+
+            List<ProductDTO> newArrival = new List<ProductDTO>();
+
+            for (int i = allItem.Count(); i> (allItem.Count() - 10); --i)
+            {
+                ProductDTO? product = allItem.Select(item => _mapper.Map<ProductDTO>(item))
+                    .FirstOrDefault(item => item.Id == i);
+
+                newArrival.Add(product);
+            }
+
+            response.Data = newArrival;
+            return response;
+        }
     }
 }

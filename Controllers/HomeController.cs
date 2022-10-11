@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 
 namespace final_project.Controllers
 {
-    // [Route("[controller]")]
+    // [Route("[controller]")]c 
     public class HomeController : Controller
     {
          private readonly ILogger<HomeController> _logger;
@@ -44,10 +44,18 @@ namespace final_project.Controllers
             return View(seletedProduct);
         }
 
+        public async Task<IActionResult> NewArrival()
+        {
+            ServiceResponse<List<ProductDTO>> products = await _productRepo.GetNewArrival();
+            var seletedProduct = products.Data;
+            return View(seletedProduct);
+        }
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View("Error!");
         }
+
     }
 }

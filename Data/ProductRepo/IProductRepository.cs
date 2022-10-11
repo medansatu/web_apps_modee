@@ -13,5 +13,6 @@ namespace final_project.Data.ProductRepo
         Task<ServiceResponse<List<ProductDTO>>> GetAllItem();
         Task<ServiceResponse<ProductDTO>> GetItembyId(int id);
         Task<ServiceResponse<List<ProductDTO>>> FindProduct(String product);
+        Task<ServiceResponse<List<ProductDTO>>> GetNewArrival();
     }
 }

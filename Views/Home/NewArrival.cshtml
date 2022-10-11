@@ -1,0 +1,51 @@
+@* @page *@
+@* @model final_project.Views.Home.NewArrival *@
+@model List<final_project.Dtos.Product.ProductDTO>
+
+@{
+    ViewData["Title"] = "New Arrival";
+}
+
+
+<style>
+.template{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    grid-gap: 5rem;
+    justify-content: center;
+}
+    .template > li{
+        height: 5;
+        position: relative;
+        background-size: cover;
+        list-style-type: none;
+        transition: 0.1s ease-out;
+    }
+
+        .template > li:hover{
+            transform: scale(1.02);
+        }
+
+.scrollable{
+    position: absolute;
+    top: 0; right: 0; left: 0; bottom: 0;
+     overflow-x: scroll;
+}
+</style>
+
+<body style="margin-bottom: 10; margin-left: 10; margin-right:10">
+    <div class="scrollable">
+        <h1>@ViewData["Title"]</h1>
+        <ul class="template">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <img src="@Html.DisplayFor(modelItem => item.ImageURL)" alt="@Html.DisplayFor(modelItem => item.ProductName)">
+                    <br>
+                    <h4>@Html.DisplayFor(modelItem => item.ProductName)</h4>
+                    <p>@Html.DisplayFor(modelItem => item.Price)</p>
+                </li>
+            }
+        </ul>
+    </div>
+</body>
