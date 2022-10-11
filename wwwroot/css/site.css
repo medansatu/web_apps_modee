@@ -8,11 +8,44 @@ html {
   }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+@media (max-width: 1023px) {
+  html {
+    font-size: 16px;
+  }
 }
 
+/* html {
+  position: relative;
+  min-height: 100%;
+} */
+
 body {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
+
+
+.list-cards {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto;
+  grid-gap: 2rem;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  /* padding-left: 0; */
+}
+
+  .list-cards > li {
+      height: 25rem;
+      width: 18rem;
+      position: relative;
+      background-size: cover;
+      /* border-radius: 0.5rem; */
+      list-style-type: none;
+      transition: 0.1s ease-out;
+      background-color: whitesmoke;
+      justify-content: center;
+  }
+
+      .list-cards > li:hover {
+          transform: scale(1.02);
+      }
