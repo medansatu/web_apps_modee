@@ -10,5 +10,7 @@ namespace final_project.Dtos.Wishlist
         public int Id { get; set; }
         
         public int ProductId { get; set; }
+        public string ProductName {get; set; } = string.Empty;
+        public string ImageUrl {get; set; } = string.Empty;
     }
 }

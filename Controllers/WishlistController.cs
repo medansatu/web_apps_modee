@@ -32,13 +32,13 @@ namespace final_project.Controllers
         }
 
         [HttpGet("GetWishlist")]
-        public async Task<ActionResult<ServiceResponse<Wishlist>>> GetWishlist()
+        public async Task<ActionResult<ServiceResponse<WishlistDTO>>> GetWishlist()
         {
             var response = await _wishlistRepository.GetWishlist();
             return Ok(response);
         }
 
-        [HttpDelete("DeleteWishlistItem")]
+        [HttpPost("DeleteWishlistItem")]
         public async Task<ActionResult<ServiceResponse<WishlistItemDTO>>> DeleteWishlist(int id)
         {
             var response = await _wishlistRepository.DeleteWishlist(id);
