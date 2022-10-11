@@ -16,6 +16,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddSession();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c => {
@@ -61,16 +63,32 @@ var app = builder.Build();
 
 // app.UseHttpsRedirection();
 
+app.UseSession();
+
+app.Use(async (context,next) => 
+{
+    var token = context.Session.GetString("token");
+    if(!string.IsNullOrEmpty(token))
+    {
+        context.Request.Headers.Add("Authorization", "Bearer " + token);
+    }
+    await next();
+}
+);
+
 app.UseSwagger();
 app.UseSwaggerUI();
+
+app.UseStaticFiles();
+app.UseRouting();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
 
 // WebApps
-app.UseStaticFiles();
-app.UseRouting();
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"

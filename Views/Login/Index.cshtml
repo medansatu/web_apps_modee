@@ -1,4 +1,4 @@
-@* @page *@
+@* @page
 @model final_project.Dtos.User.UserDTO
 @{
     ViewData["Title"] = "Index";
@@ -13,4 +13,13 @@
     <p>
         @Html.DisplayFor(item => Model.Token)
     </p>
-</div>
+</div> *@
+
+<h3>Login</h3>
+<form method="post" asp-controller="Login" asp-action="Login">
+    Username <input type="text" name="username"/>
+    <br>
+    Password <input type="password" name="password"/>
+    <br>
+    <input type="submit" value="Login"/>
+</form>
