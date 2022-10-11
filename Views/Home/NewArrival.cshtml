@@ -41,9 +41,8 @@
         <ul class="template">
             @foreach (var item in Model)
             {
-                
                 <li>
-                    <a asp-controller="Home" asp-action="Index">
+                    <a asp-controller="Home" asp-action="ProductId" asp-route-id="@item.Id">
                     <img src="@Html.DisplayFor(modelItem => item.ImageURL)" alt="@Html.DisplayFor(modelItem => item.ProductName)" height=75% width=99.98%>
                     </a>
                     <br>
@@ -52,7 +51,6 @@
                     </a>
                     <p style="align-item: flex-end; text-align: center; font-size: 15px; color: #FF82c9">RP. @Html.DisplayFor(modelItem => item.Price)</p>
                 </li>
-                
             }
         </ul>
     </div>

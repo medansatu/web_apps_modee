@@ -1,20 +1,57 @@
 @page
 @model final_project.Dtos.Product.ProductDTO
 
-@{
-    ViewData["Title"] = "@Html.DisplayFor(model => model.ProductName)";
-}
+@* <h1>@Html.DisplayFor(model => model.ProductName)</h1> *@
+<style>
+    .block{
+        display: block;
+        width: 100%;
+        height: 10%;
+    }
 
-<h1>@ViewData["Title"]</h1>
+    #mydiv{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+        #mydiv div{
+            height: 30%;
+            width: 100%;
+        }
+</style>
+
 
 <html>
 <body style="background-color: #1e1e1e;">
     <div class="Container" style="background-color: #1e1e1e;">
-        <div class="column">
-            <div>
-
+        <div class="row">
+            <div class="col align-self-start">
+                <img src="@Html.DisplayFor(model => model.ImageURL)" width="500" height="600">
+            </div>
+            <div class="col align-self-end">
+                <div id="mydiv">
+                <div>
+                    <h2 style="color: white;">@Html.DisplayFor(model => model.ProductName)</h2>
+                    <br>
+                    <br>
+                    <h4 style="color: white;">@Html.DisplayFor(model => model.Price)</h4>
+                    <br>
+                    <br>
+                    <br>
+                    <p style="color: white;">@Html.DisplayFor(model => model.Description)</p>
+                </div>
+                <div>
+                    <a asp-controller="Home" asp-action="NewArrival" style="text-decoration: none">
+                    <button type="button" class="block" style = "background-color: #ff82c9;"> Add To Cart </button>
+                    </a>
+                    <br>
+                    <a asp-controller="Home" asp-action="NewArrival" style="text-decoration: none">
+                    <button type="button" class="block" style = "background-color: #ff82c9;"> Add To Wishlist </button>
+                    </a>
+                </div> 
+                </div>   
             </div>
         </div>
-        
     </div>
 </body>
