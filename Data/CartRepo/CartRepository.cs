@@ -58,6 +58,7 @@ namespace final_project.Data.CartRepo
                     Quantity = x.Quantity,
                     Price = product.Price,
                     ProductName = product.ProductName,
+                    ImageUrl = product.ImageURL,
                 };
                 productCartDTO.Add(productCart);
             }

@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MvcMovie.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
-
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3" style="color: #1e1e1e;">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     @* Modee *@
@@ -49,6 +49,18 @@
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn" type="submit" style="background-color: #ff82c9;">Search</button>
                     </form>
+                    <br>
+                    <a asp-controller="Login"
+                                asp-action="Index">
+                    <i class="bi bi-person-circle" style="color: #ff82c9; font-size: 32px; padding-left: 10px;"></i></a>
+                    <br>
+                    <a asp-controller="MyWishlist"
+                                asp-action="Index">
+                    <i class="bi bi-heart-fill" style="color: #ff82c9; font-size: 32px; padding-left: 10px;"></i></a>  
+                    <br>
+                    <a asp-controller="MyCart"
+                                asp-action="Index">
+                    <i class="bi bi-cart-fill" style="color: #ff82c9; font-size: 32px; padding-left: 10px;"></i></a>                 
                 </div>
             </div>
         </nav>
@@ -69,5 +81,4 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
-
 </html>

@@ -12,5 +12,6 @@ namespace final_project.Dtos.Product
         public int Quantity { get; set; }
         public int Price { get; set; }
         public string ProductName {get; set;} = string.Empty;
+        public string ImageUrl {get; set;} = string.Empty;
     }
 }
