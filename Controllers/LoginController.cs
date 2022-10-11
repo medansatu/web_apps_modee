@@ -41,8 +41,8 @@ namespace final_project.Controllers
             {
                 HttpContext.Session.SetString("username", username);
                 HttpContext.Session.SetString("token", user.Data.Token);
-                return RedirectToAction("welcome");
-                // return RedirectToAction("Index", "Home");
+                // return RedirectToAction("welcome");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
