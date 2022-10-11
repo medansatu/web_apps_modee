@@ -1,0 +1,28 @@
+@model final_project.Dtos.Cart.CartProductDTO
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>           
+        @foreach (var item in Model.CartItemList)
+        {
+            <p>
+                @Html.DisplayFor(modeItem => item.ProductName)
+                @Html.DisplayFor(modelItem => item.Price)
+            </p>
+            <form method="post" asp-controller="MyCart" asp-action="EditCart">
+                <input type="hidden" value="@item.Id" name="cartitemid"/>
+                Qty <input type="text" name="quantity" value="@item.Quantity"/>              
+                <br>
+            </form>
+            <form method="post" asp-controller="MyCart" asp-action="EditCart">                
+                <input type="hidden" value="@item.Id" name="cartitemid"/>
+                <input type="hidden" value="0" name="@item.Quantity"/>
+                <input type="submit" value="delete" style="background-color: #ff82c9;"/>
+                </form>
+
+        }
+        <p> Total @Model.CartItemList.Sum(item => item.Price * item.Quantity) </p>
+</div>
