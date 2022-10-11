@@ -15,7 +15,8 @@
     justify-content: center;
 }
     .template > li{
-        height: 5;
+        height: 25rem;
+        width: 18rem;
         position: relative;
         background-size: cover;
         list-style-type: none;
@@ -27,25 +28,33 @@
         }
 
 .scrollable{
-    position: absolute;
+    position: relative;
     top: 0; right: 0; left: 0; bottom: 0;
      overflow-x: scroll;
 }
 </style>
 
-<body style="margin-bottom: 10; margin-left: 10; margin-right:10">
+<html>
+<body style="margin-left: 0px; margin-right:0px; margin-bottom: 0; background-color: #1e1e1e">
     <div class="scrollable">
-        <h1>@ViewData["Title"]</h1>
+        <h1 style="color: White">@ViewData["Title"]</h1>
         <ul class="template">
             @foreach (var item in Model)
             {
+                
                 <li>
-                    <img src="@Html.DisplayFor(modelItem => item.ImageURL)" alt="@Html.DisplayFor(modelItem => item.ProductName)">
+                    <a asp-controller="Home" asp-action="Index">
+                    <img src="@Html.DisplayFor(modelItem => item.ImageURL)" alt="@Html.DisplayFor(modelItem => item.ProductName)" height=75% width=99.98%>
+                    </a>
                     <br>
-                    <h4>@Html.DisplayFor(modelItem => item.ProductName)</h4>
-                    <p>@Html.DisplayFor(modelItem => item.Price)</p>
+                    <a asp-controller="Home" asp-action="Index">
+                    <h4 style="text-align: center; color: White; overflow: hidden; text-decoration: none;">@Html.DisplayFor(modelItem => item.ProductName)</h4>
+                    </a>
+                    <p style="align-item: flex-end; text-align: center; font-size: 15px; color: #FF82c9">RP. @Html.DisplayFor(modelItem => item.Price)</p>
                 </li>
+                
             }
         </ul>
     </div>
 </body>
+</html>

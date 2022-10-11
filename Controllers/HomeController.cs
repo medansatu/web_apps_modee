@@ -58,6 +58,14 @@ namespace final_project.Controllers
             return View(seletedProduct);
         }
 
+        public async Task<IActionResult> ProductId(int id)
+        {
+            ServiceResponse<ProductDTO> product = await _productRepo.GetItembyId(id);
+
+            var seletedProduct = product.Data;
+            return View(seletedProduct);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
