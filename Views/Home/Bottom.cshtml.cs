@@ -8,11 +8,11 @@ using Microsoft.Extensions.Logging;
 
 namespace final_project.Views.Home
 {
-    public class Top : PageModel
+    public class Bottom : PageModel
     {
-        private readonly ILogger<Top> _logger;
+        private readonly ILogger<Bottom> _logger;
 
-        public Top(ILogger<Top> logger)
+        public Bottom(ILogger<Bottom> logger)
         {
             _logger = logger;
         }

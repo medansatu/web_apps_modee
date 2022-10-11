@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-namespace final_project.Views.Home
+namespace final_project.Views.MyCart
 {
-    public class Top : PageModel
+    public class Index : PageModel
     {
-        private readonly ILogger<Top> _logger;
+        private readonly ILogger<Index> _logger;
 
-        public Top(ILogger<Top> logger)
+        public Index(ILogger<Index> logger)
         {
             _logger = logger;
         }
