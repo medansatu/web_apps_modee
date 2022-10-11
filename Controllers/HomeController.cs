@@ -58,6 +58,34 @@ namespace final_project.Controllers
             return View(seletedProduct);
         }
 
+        public async Task<IActionResult> Dress()
+        {
+            ServiceResponse<List<ProductDTO>> products = await _productRepo.GetAllItem();
+            var seletedProduct = products.Data.Where(i => i.Category.Id == 3).ToList();
+            return View(seletedProduct);
+        }
+
+        public async Task<IActionResult> Shoes()
+        {
+            ServiceResponse<List<ProductDTO>> products = await _productRepo.GetAllItem();
+            var seletedProduct = products.Data.Where(i => i.Category.Id == 4).ToList();
+            return View(seletedProduct);
+        }
+
+        public async Task<IActionResult> Bag()
+        {
+            ServiceResponse<List<ProductDTO>> products = await _productRepo.GetAllItem();
+            var seletedProduct = products.Data.Where(i => i.Category.Id == 5).ToList();
+            return View(seletedProduct);
+        }
+
+        public async Task<IActionResult> Accessories()
+        {
+            ServiceResponse<List<ProductDTO>> products = await _productRepo.GetAllItem();
+            var seletedProduct = products.Data.Where(i => i.Category.Id == 6).ToList();
+            return View(seletedProduct);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -2,13 +2,11 @@
 @model IEnumerable<final_project.Dtos.Product.ProductDTO>
 
 <html>
-
 <body style="background-color: #1e1e1e">
     <div>
     <ul class="list-cards">
     @foreach (var item in Model)
-    {
-        
+    {   
         <li> 
             <a asp-controller="Home" asp-action="Index">
             <img src="@Html.DisplayFor(modelItem => item.ImageURL)" width=99.98% height=75% align=center> </a>
@@ -16,8 +14,7 @@
             <p style="padding-left:10px; padding-top:15px; color:black; font-size:14px"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>
             <p style="padding-left:10px; color: black; font-size:15px"> Rp @Html.DisplayFor(modelItem => item.Price) </p>           
         </li>
-        <br>
-       
+        <br>    
     }
 </ul>
 </div>
