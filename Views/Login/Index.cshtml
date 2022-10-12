@@ -1,21 +1,10 @@
-@* @page
-@model final_project.Dtos.User.UserDTO
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Login";
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <div>
-    <p>
-        @Html.DisplayFor(item => Model.Name)
-    </p>
-    <p>
-        @Html.DisplayFor(item => Model.Token)
-    </p>
-</div> *@
-
-<h3>Login</h3>
 <form method="post" asp-controller="Login" asp-action="Login">
     Username <input type="text" name="username"/>
     <br>
@@ -23,3 +12,6 @@
     <br>
     <input type="submit" value="Login"/>
 </form>
+<br>
+Dont Have Account? <a asp-controller="Register" asp-action="Index"> Register </a>
+</div>
