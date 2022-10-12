@@ -1,0 +1,17 @@
+@model IEnumerable<final_project.Dtos.Product.ProductDTO>
+@{
+    ViewData["Title"] = "Search Result";
+}
+
+<h3>Search result for @ViewBag.keyword:</h3>
+
+<div>
+    @foreach (var item in Model)
+    {
+        <p>
+            <img src="@Html.DisplayFor(modelItem => item.ImageURL)" alt="photo">
+            <br>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </p>
+    }
+</div>

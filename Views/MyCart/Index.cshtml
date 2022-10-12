@@ -16,6 +16,8 @@
             <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width=30% height=100% align=left>
             <br>
             <p style="padding-left:300px; padding-top:15px; color:black; font-size:16px"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>
+            <p style="padding-left:300px; padding-top:15px; color:black; font-size:16px"> Quantity : 
+            <button type="button" onclick="alert('Hello world!')" style="padding-left:15px; color:black; font-size:16px; weight:30px; height:30px;"> - </button> </p> 
             <p style="padding-left:300px; color: black; font-size:15px"> Rp @Html.DisplayFor(modelItem => item.Price) </p>           
         </li>
         <br>    

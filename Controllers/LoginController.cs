@@ -26,10 +26,18 @@ namespace final_project.Controllers
         //[HttpPost]
         public IActionResult Index()
         {  
-            
+            ViewBag.token = HttpContext.Session.GetString("token");
+           if(ViewBag.token == null)
+           {
             return View();
+           } 
+            else
+            {
+                return RedirectToAction("Index","MyProfile");
+            }
         }
 
+        [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
         {
             UserLoginDTO login = new UserLoginDTO {
@@ -38,8 +46,7 @@ namespace final_project.Controllers
             };
             var user  = await _authRepo.Login(login);
             if(user != null)
-            {
-                HttpContext.Session.SetString("username", username);
+            {               
                 HttpContext.Session.SetString("token", user.Data.Token);
                 // return RedirectToAction("welcome");
                 return RedirectToAction("Index", "Home");
@@ -52,15 +59,13 @@ namespace final_project.Controllers
         }
 
         public IActionResult Welcome()
-        {  
-            ViewBag.Username = HttpContext.Session.GetString("username");
+        {             
             ViewBag.token = HttpContext.Session.GetString("token");
             return View("Welcome");
         }
 
         public IActionResult Logout()
-        {  
-            HttpContext.Session.Remove("username");
+        {              
             HttpContext.Session.Remove("token");
             return RedirectToAction("Index");
         }
