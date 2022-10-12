@@ -13,13 +13,13 @@
                 @foreach (var item in Model.CartItemList)
                 {   
                     <li> 
-                        <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width=30% height=100% align=left>
+                        <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width=30% height=100% align=left style="border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem;">
                         <div style="padding-left:300px;">
                             <br>
                             <p style="padding-top:15px; color:black; font-size:16px"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>
                             <form method="post" asp-controller="MyCart" asp-action="EditCart">
                             <input type="hidden" value="@item.Id" name="cartitemid"/>
-                            Quantity :  <input type="text" name="quantity" value="@item.Quantity"/>              
+                            Quantity :  <input type="text" name="quantity" value="@item.Quantity" size="1" style="text-align: center;"/>              
                             <br>
                             </form>                             
                             @* <button type="button" onclick="alert('Hello world!')" style="padding-left:15px; color:black; font-size:16px; weight:30px; height:30px;"> - </button> </p>  *@
@@ -42,10 +42,10 @@
                 }  
             </ul>
         </div>
-        <div class="col align-self-start"> 
-            <div class="order-contents" style="background-color: white; height: 100vh; width: 30vh">
-                <h2 style="color:black;"><b> Your order </b></h2>
-                 <p> Total : Rp @Model.CartItemList.Sum(item => item.Price * item.Quantity) </p>
+        <div class="col align-self-start">
+            <div class="order-contents" style="background-color: whitesmoke; position: fixed; height: 70vh; width: 20vw; border-radius: 0.5rem;">
+                <h2 style="color:black; text-align: center;"><b> Your order </b></h2>
+                 <p style="text-align: center;"> Total : Rp @Model.CartItemList.Sum(item => item.Price * item.Quantity) </p>
             </div>
         </div>
     </div>  

@@ -24,12 +24,21 @@ namespace final_backend.Controllers
             _logger = logger;
             _wishlistRepo = wishlistRepo;
         }
-
+        
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
+            ViewBag.tokenwishlists = HttpContext.Session.GetString("token") ?? null;
+            if(ViewBag.tokenwishlists == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
             ServiceResponse<WishlistDTO> wishlist = await _wishlistRepo.GetWishlist();
             var model = wishlist.Data;
             return View(model);
+            }
         }
 
         [HttpPost]

@@ -3,14 +3,14 @@
 <body style="background-color: #1e1e1e">
 <div>
     @* <h1 style="color:white; padding-bottom: 20px;">@ViewData["Title"]</h1> *@
-            <ul class="list-carts">
+            <ul class="list-wishlist">
                 @foreach (var item in Model.WishlistItems)
                 {   
                     <li> 
-                        <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width=30% height=100% align=left>
-                        <div style="padding-left:300px;">
+                        <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width=30% height=100% align=left style="border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem;">
+                        <div style="padding-left:400px;">
                             <br>
-                            <p style="padding-top:15px; color:black; font-size:16px"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>                            
+                            <p style="padding-top:15px; color:black; font-size:30px"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>                            
                             @* <button type="button" onclick="alert('Hello world!')" style="padding-left:15px; color:black; font-size:16px; weight:30px; height:30px;"> - </button> </p>  *@
                             <br>
                             @* <a asp-controller="Login"

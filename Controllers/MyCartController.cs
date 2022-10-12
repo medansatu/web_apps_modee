@@ -26,11 +26,20 @@ namespace final_project.Controllers
             _cartRepo = cartRepo;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
+            ViewBag.tokencarts = HttpContext.Session.GetString("token") ?? null;
+            if(ViewBag.tokencarts == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
             ServiceResponse<CartProductDTO> cart = await _cartRepo.GetAllCart();            
             var model = cart.Data;
             return View(model);
+            }
         }
 
         [HttpPost]
