@@ -2,7 +2,31 @@
     ViewData["Title"] = "Login";
 }
 
-<h1>@ViewData["Title"]</h1>
+<body style="background-color: #1e1e1e">
+<div class="container" style="height: 78vh; justify-content: center;">        
+    <div class="row">
+        <div class="col align-self-start">
+            <img src="~/img/logologin1.png" alt="Modee" , height="500rem" , width="500rem"/>
+        </div>
+        <div class="col align-self-center">
+            <form method="post" asp-controller="Login" asp-action="Login">
+                <i class="bi bi-person-circle" style="color: #ff82c9; font-size: 32px; padding-left: 10px;"></i></a>
+                <input type="text" name="username" placeholder="Username"/>
+                <br>
+                <input type="text" name="password" placeholder="Password"/> 
+                <br>
+                <input type="submit" value="Login"/>
+            </form>
+            <br>
+            
+            <p style="color: white;"> Dont Have An Account? <a asp-controller="Register" asp-action="Index"> </a> Register </a> </p>
+        </div>
+    </div>  
+</div>
+</body>
+
+
+@* <h1>@ViewData["Title"]</h1>
 
 <div>
 <form method="post" asp-controller="Login" asp-action="Login">
@@ -14,4 +38,4 @@
 </form>
 <br>
 Dont Have Account? <a asp-controller="Register" asp-action="Index"> Register </a>
-</div>
+</div> *@
