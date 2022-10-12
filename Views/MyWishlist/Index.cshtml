@@ -1,5 +1,44 @@
 @model final_project.Dtos.Wishlist.WishlistDTO
-@{
+
+<body style="background-color: #1e1e1e">
+<div>
+    @* <h1 style="color:white; padding-bottom: 20px;">@ViewData["Title"]</h1> *@
+            <ul class="list-carts">
+                @foreach (var item in Model.WishlistItems)
+                {   
+                    <li> 
+                        <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width=30% height=100% align=left>
+                        <div style="padding-left:300px;">
+                            <br>
+                            <p style="padding-top:15px; color:black; font-size:16px"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>                            
+                            @* <button type="button" onclick="alert('Hello world!')" style="padding-left:15px; color:black; font-size:16px; weight:30px; height:30px;"> - </button> </p>  *@
+                            <br>
+                            @* <a asp-controller="Login"
+                                asp-action="Index"> *@
+                                <form method="post" asp-controller="MyWishlist" asp-action="DeleteWishlist">                
+                                    <input type="hidden" value="@item.Id" name="id"/>
+                                <button type="submit" style="border: none; background-color: whitesmoke;">
+                                <i class=" bi bi-trash-fill" style="color: #ff82c9; font-size: 32px; padding-left: 10px;"></i>
+                                </button>
+                                </form>
+                            @* </a> *@
+                        </div>       
+                    </li>
+                    <br>  
+                }  
+            </ul>
+        </div>
+    </div>  
+</div>
+</body>
+
+
+
+
+
+
+
+@* @{
     ViewData["Title"] = "Index";
 }
 
@@ -18,4 +57,4 @@
                 <input type="submit" value="delete" style="background-color: #ff82c9;"/>
                 </form>
     }
-</div>
+</div> *@

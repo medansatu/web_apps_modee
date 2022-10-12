@@ -7,23 +7,52 @@
 <body style="background-color: #1e1e1e">
 <div>        
     <div class="row">
-    <div class="col align-self-start">
+        <div class="col align-self-start">
     @* <h1 style="color:white; padding-bottom: 20px;">@ViewData["Title"]</h1> *@
-     <ul class="list-carts">
-    @foreach (var item in Model.CartItemList)
-    {   
-        <li> 
-            <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width=30% height=100% align=left>
-            <br>
-            <p style="padding-left:300px; padding-top:15px; color:black; font-size:16px"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>
-            <p style="padding-left:300px; padding-top:15px; color:black; font-size:16px"> Quantity : 
-            <button type="button" onclick="alert('Hello world!')" style="padding-left:15px; color:black; font-size:16px; weight:30px; height:30px;"> - </button> </p> 
-            <p style="padding-left:300px; color: black; font-size:15px"> Rp @Html.DisplayFor(modelItem => item.Price) </p>           
-        </li>
-        <br>    
-    }
-</ul> 
-        @* @foreach (var item in Model.CartItemList)
+            <ul class="list-carts">
+                @foreach (var item in Model.CartItemList)
+                {   
+                    <li> 
+                        <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width=30% height=100% align=left>
+                        <div style="padding-left:300px;">
+                            <br>
+                            <p style="padding-top:15px; color:black; font-size:16px"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>
+                            <form method="post" asp-controller="MyCart" asp-action="EditCart">
+                            <input type="hidden" value="@item.Id" name="cartitemid"/>
+                            Quantity :  <input type="text" name="quantity" value="@item.Quantity"/>              
+                            <br>
+                            </form>                             
+                            @* <button type="button" onclick="alert('Hello world!')" style="padding-left:15px; color:black; font-size:16px; weight:30px; height:30px;"> - </button> </p>  *@
+                            <p style="color: black; font-size:15px"> Price : Rp @Html.DisplayFor(modelItem => item.Price) </p> 
+                            <br> 
+                            <p style="color: black; font-size:15px"> Item Total : Rp @(item.Price * @item.Quantity) </p> 
+                            @* <a asp-controller="Login"
+                                asp-action="Index"> *@
+                                <form method="post" asp-controller="MyCart" asp-action="EditCart">                
+                                    <input type="hidden" value="@item.Id" name="cartitemid"/>
+                                    <input type="hidden" value="0" name="@item.Quantity"/>
+                                <button type="submit" style="border: none; background-color: whitesmoke;">
+                                <i class=" bi bi-trash-fill" style="color: #ff82c9; font-size: 32px; padding-left: 10px;"></i>
+                                </button>
+                                </form>
+                            @* </a> *@
+                        </div>       
+                    </li>
+                    <br>  
+                }  
+            </ul>
+        </div>
+        <div class="col align-self-start"> 
+            <div class="order-contents" style="background-color: white; height: 100vh; width: 30vh">
+                <h2 style="color:black;"><b> Your order </b></h2>
+                 <p> Total : Rp @Model.CartItemList.Sum(item => item.Price * item.Quantity) </p>
+            </div>
+        </div>
+    </div>  
+</div>
+</body>
+
+@* @foreach (var item in Model.CartItemList)
         {
             <p>
                 @Html.DisplayFor(modeItem => item.ProductName)
@@ -42,6 +71,3 @@
 
         }
         <p> Total @Model.CartItemList.Sum(item => item.Price * item.Quantity) </p> *@
-        <div class="col align-self-end"></div>
-</div>
-</body>

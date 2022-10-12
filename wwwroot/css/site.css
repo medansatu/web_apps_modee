@@ -71,3 +71,20 @@ body {
             background-color: whitesmoke;
             justify-content: center;
         }
+
+        .order-contents {
+          position: sticky;
+          display: flex;
+          flex-direction: column;
+          /* overflow-y: auto; */
+          padding: 2rem 1.5rem 1.5rem 1.5rem;
+      }
+      
+          .order-contents h2 {
+              color: #fff2cc;
+              font-size: 1.3rem;
+              font-weight: 300;
+              margin-bottom: 1rem;
+              font-family: 'Bahnschrift', Arial, Helvetica, sans-serif;
+              text-transform: uppercase;
+          }
