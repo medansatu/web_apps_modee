@@ -47,14 +47,12 @@ body{
             @foreach (var item in Model)
             {
                 <li>
-                    <a asp-controller="Home" asp-action="ProductId" asp-route-id="@item.Id">
-                    <img src="@Html.DisplayFor(modelItem => item.ImageURL)" alt="@Html.DisplayFor(modelItem => item.ProductName)" height=75% width=99.98%>
-                    </a>
-                    <br>
                     <a asp-controller="Home" asp-action="ProductId" asp-route-id="@item.Id" style="text-decoration: none;">
-                    <h4 style="text-align: center; color: White; overflow: hidden; text-decoration: none;">@Html.DisplayFor(modelItem => item.ProductName)</h4>
-                    </a>
+                    <img src="@Html.DisplayFor(modelItem => item.ImageURL)" alt="@Html.DisplayFor(modelItem => item.ProductName)" height=75% width=99.98% style="border-radius: 0.5rem;">                    
+                    <br>
+                    <h4 style="text-align: center; color: White; overflow: hidden; text-decoration: none;">@Html.DisplayFor(modelItem => item.ProductName)</h4>                    
                     <p style="align-item: flex-end; text-align: center; font-size: 15px; color: #FF82c9">RP. @Html.DisplayFor(modelItem => item.Price)</p>
+                    </a>
                 </li>
             }
         </ul>
