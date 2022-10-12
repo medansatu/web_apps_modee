@@ -8,11 +8,12 @@
     @foreach (var item in Model)
     { 
         <li> 
-            <a asp-controller="Home" asp-action="Index">
-            <img src="@Html.DisplayFor(modelItem => item.ImageURL)" width=99.98% height=75% align=center> </a>
+            <a asp-controller="Home" asp-action="ProductId" asp-route-id="@item.Id" style="text-decoration: none;">
+            <img src="@Html.DisplayFor(modelItem => item.ImageURL)" width=99.98% height=75% align=center>
             <br>
             <p style="padding-left:10px; padding-top:15px; color:black; font-size:14px"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>
-            <p style="padding-left:10px; color: black; font-size:15px"> Rp @Html.DisplayFor(modelItem => item.Price) </p>           
+            <p style="padding-left:10px; color: black; font-size:15px"> Rp @Html.DisplayFor(modelItem => item.Price) </p> 
+            </a>          
         </li>
         <br> 
     }

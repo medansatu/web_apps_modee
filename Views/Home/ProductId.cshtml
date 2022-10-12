@@ -6,14 +6,17 @@
     .block{
         display: block;
         width: 100%;
-        height: 10%;
+        height: 7vh;
+        border-radius: 15px;
     }
 
     #mydiv{
+        position: absolute;
+        width: 45%;
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        @* justify-content: space-between; *@
     }
         #mydiv div{
             height: 30%;
@@ -29,27 +32,29 @@
             <div class="col align-self-start">
                 <img src="@Html.DisplayFor(model => model.ImageURL)" width="500" height="600">
             </div>
-            <div class="col align-self-end">
+            <div class="col" style="height: 100hv;">
                 <div id="mydiv">
-                <div>
-                    <h2 style="color: white;">@Html.DisplayFor(model => model.ProductName)</h2>
-                    <br>
-                    <br>
-                    <h4 style="color: #FF82c9;">RP. @Html.DisplayFor(model => model.Price)</h4>
-                    <br>
-                    <br>
-                    <br>
-                    <p style="color: white;">@Html.DisplayFor(model => model.Description)</p>
-                </div>
-                <div>
-                    <a asp-controller="Home" asp-action="NewArrival" style="text-decoration: none">
-                    <button type="button" class="block" style = "background-color: #ff82c9;"> Add To Cart </button>
-                    </a>
-                    <br>
-                    <a asp-controller="Home" asp-action="NewArrival" style="text-decoration: none">
-                    <button type="button" class="block" style = "background-color: #ff82c9;"> Add To Wishlist </button>
-                    </a>
-                </div> 
+                        <div class= "col align-self-start">
+                            <h2 style="color: white;">@Html.DisplayFor(model => model.ProductName)</h2>
+                            <br>
+                            <br>
+                            <h4 style="color: #FF82c9;">RP. @Html.DisplayFor(model => model.Price)</h4>
+                            <br>
+                            <br>
+                            <br>
+                            <p style="color: white;">@Html.DisplayFor(model => model.Description)</p>
+                        </div>
+                        <div class="col align-self-end">
+                            <form method="post" asp-controller="Home" asp-action="AddToCart">
+                                <input type="hidden" name="productId" value="@Html.DisplayFor(model => model.Id)">
+                            <input type="submit" class="block" style = "background-color: #ff82c9;" value="Add To Cart">                           
+                            </form>
+                            <br>
+                            <form method="post" asp-controller="Home" asp-action="AddToWishlist">
+                                <input type="hidden" name="productId" value="@Html.DisplayFor(model => model.Id)">
+                            <input type="submit" class="block" style = "background-color: #ff82c9;" value="Add To Wishlist"> 
+                            </form>
+                        </div>
                 </div>   
             </div>
         </div>
