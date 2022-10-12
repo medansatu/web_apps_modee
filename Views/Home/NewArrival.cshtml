@@ -8,9 +8,13 @@
 
 
 <style>
+body{
+    
+}
+
 .template{
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto;
     grid-gap: 5rem;
     justify-content: center;
 }
@@ -30,14 +34,15 @@
 .scrollable{
     position: relative;
     top: 0; right: 0; left: 0; bottom: 0;
-     overflow-x: scroll;
+     overflow-y: scroll;
 }
 </style>
 
 <html>
-<body style="margin-left: 0px; margin-right:0px; margin-bottom: 0; background-color: #1e1e1e">
-    <div class="scrollable">
-        <h1 style="color: White">@ViewData["Title"]</h1>
+<body style="margin-left: 0px; margin-right:0px; margin-bottom: 0; background-color: #1e1e1e;">
+        <h1 style="color: White; text-align: center;">@ViewData["Title"]</h1>
+        <br>
+        <br>
         <ul class="template">
             @foreach (var item in Model)
             {
@@ -46,7 +51,7 @@
                     <img src="@Html.DisplayFor(modelItem => item.ImageURL)" alt="@Html.DisplayFor(modelItem => item.ProductName)" height=75% width=99.98%>
                     </a>
                     <br>
-                    <a asp-controller="Home" asp-action="Index">
+                    <a asp-controller="Home" asp-action="ProductId" asp-route-id="@item.Id" style="text-decoration: none;">
                     <h4 style="text-align: center; color: White; overflow: hidden; text-decoration: none;">@Html.DisplayFor(modelItem => item.ProductName)</h4>
                     </a>
                     <p style="align-item: flex-end; text-align: center; font-size: 15px; color: #FF82c9">RP. @Html.DisplayFor(modelItem => item.Price)</p>

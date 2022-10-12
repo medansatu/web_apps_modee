@@ -82,7 +82,7 @@ namespace final_project.Data.ProductRepo
 
             List<ProductDTO> newArrival = new List<ProductDTO>();
 
-            for (int i = allItem.Count(); i> (allItem.Count() - 10); --i)
+            for (int i = allItem.Count(); i> (allItem.Count() - 15); --i)
             {
                 ProductDTO? product = allItem.Select(item => _mapper.Map<ProductDTO>(item))
                     .FirstOrDefault(item => item.Id == i);
