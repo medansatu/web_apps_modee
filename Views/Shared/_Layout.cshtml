@@ -45,8 +45,8 @@
                                 asp-action="Accessories">Accessories</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" method="post" asp-controller="Search" asp-action="Index">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
                         <button class="btn" type="submit" style="background-color: #ff82c9;">Search</button>
                     </form>
                     <br>
