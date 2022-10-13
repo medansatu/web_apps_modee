@@ -102,6 +102,7 @@ namespace final_project.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddToCart(int productId)
         {
             AddToCartDTO addCart = new AddToCartDTO {
@@ -120,6 +121,7 @@ namespace final_project.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddToWishlist(int productId)
         {
             WishlistItemDTO addWishlist = new WishlistItemDTO {

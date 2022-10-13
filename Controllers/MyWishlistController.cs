@@ -42,6 +42,7 @@ namespace final_backend.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteWishlist(int id)
         {
             await _wishlistRepo.DeleteWishlist(id);
