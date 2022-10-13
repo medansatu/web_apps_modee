@@ -2,46 +2,67 @@
     ViewData["Title"] = "Login";
 }
 
-<body style="background-color: #1e1e1e">
-<div class="container" style="height: 78vh; justify-content: center;">        
-    <div class="row">
-        <div class="col align-self-start" style="margin-top: 30px;">
-            <img src="~/img/logologin1.png" alt="Modee" , height="500rem" , width="500rem" style="margin-left: 170px;"/>
+<style>
+    .fullscreen {
+        position: fixed;
+        top: 10.2vh;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+</style>
+
+<body>
+    <div class="fullscreen" style="background-color: #1e1e1e">
+        <div class="row">
+            <div class="col sm-6" style="display: flex; height: 100vh; align-items: center; justify-content: center;">
+                <img src="~/img/logologin1.png" alt="Modee" , height="500rem" , width="500rem"
+                    style="margin-left: 170px;" />
+            </div>
+            <div class="col sm-6"
+                style="display: flex; height: 100vh; justify-content: center; align-items: center; background-color: #d83e96;">
+                <div class="column">
+                    @if (ViewData["LoginFlag"] != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+
+                            @ViewData["LoginFlag"]
+
+                        </div>
+                    }
+                    <div>
+                        <form method="post" asp-controller="Login" asp-action="Login">
+                            <i class="bi bi-person-circle"
+                                style="color: #1e1e1e; font-size: 26px; margin-right: 15px;"></i>
+                            <input type="text" name="username" placeholder="Username" />
+                            <br>
+                            <i class="bi bi-lock-fill" style="color: #1e1e1e; font-size: 26px; margin-right: 15px;"></i>
+                            <input type="password" name="password" placeholder="Password" />
+                            <br>
+                            <input type="submit" value="Login"
+                                style=" color: whitesmoke; background-color: #1e1e1e; margin-left: 5vw; margin-top: 20px; border-radius: 0.5rem; width: 8vw;" />
+                        </form>
+                        <br>
+                        <p style="color: #1e1e1e;"> Don't Have An Account? <a asp-controller="Register"
+                                asp-action="Index" style="color: whitesmoke;"> Register </a> </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col align-self-center" style="margin-top: 30px;">
-            @if(ViewData["LoginFlag"] != null){
-            <div class="alert alert-danger" role="alert">
-                
-                    @ViewData["LoginFlag"]
-                
-            </div>}
-            <form method="post" asp-controller="Login" asp-action="Login">
-                <i class="bi bi-person-circle" style="color: #ff82c9; font-size: 26px; margin-right: 15px;"></i>
-                <input type="text" name="username" placeholder="Username"/>
-                <br>
-                <i class="bi bi-lock-fill" style="color: #ff82c9; font-size: 26px; margin-right: 15px;"></i>
-                <input type="password" name="password" placeholder="Password"/> 
-                <br>
-                <input type="submit" value="Login" style="background-color: #ff82c9; margin-left: 5vw; margin-top: 20px; border-radius: 0.5rem; width: 8vw;"/>
-            </form>
-            <br>
-            <p style="color: white;"> Don't Have An Account? <a asp-controller="Register" asp-action="Index" style="color: #ff82c9;"> Register </a> </p>
-        </div>
-    </div>  
-</div>
+    </div>
 </body>
 
 
 @* <h1>@ViewData["Title"]</h1>
 
-<div>
-<form method="post" asp-controller="Login" asp-action="Login">
+    <div>
+    <form method="post" asp-controller="Login" asp-action="Login">
     Username <input type="text" name="username"/>
     <br>
     Password <input type="password" name="password"/>
     <br>
     <input type="submit" value="Login"/>
-</form>
-<br>
-Dont Have Account? <a asp-controller="Register" asp-action="Index"> Register </a>
-</div> *@
+    </form>
+    <br>
+    Dont Have Account? <a asp-controller="Register" asp-action="Index"> Register </a>
+    </div> *@

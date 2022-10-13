@@ -39,12 +39,12 @@ namespace final_project.Controllers
                 PhoneNumber = PhoneNumber
             };
             var id = await _authRepository.Register(register);
-            if(id != null)
+            if(id.Data != null)
             {
                 return RedirectToAction("Index", "Login");
             }
             else{
-                ViewBag.msg = "Invalid";
+                ViewData["RegisterFlag"] = "Username already used";
                 return View("Index");
             }
         }

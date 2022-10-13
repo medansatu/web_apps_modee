@@ -43,6 +43,7 @@ namespace final_project.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditCart(int cartitemid, int quantity)
         {
             CartItemDTO editCart = new CartItemDTO{

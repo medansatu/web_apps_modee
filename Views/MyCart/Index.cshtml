@@ -4,8 +4,17 @@
 }
 
 
-<body style="background-color: #1e1e1e" style="height: 100vh;">
-<div>        
+@if(Model.CartItemList.Count() == 0) {
+    <body style="background-color: #1e1e1e" style="height: 100vh;">
+        <div style="height: 75vh; justify-content: center; align-items: center; display: flex;">
+            <div class="center" style="text-align: center;">
+                <h2 style="color: white;"> Your Cart is Empty </h2> <i class="bi bi-cart-fill" style="font-size: 100px; color: #ff82c9;"></i>              
+             </div>                       
+        </div>    
+    </body>
+} else {
+<body style="background-color: #1e1e1e" style="height: 100vh;">     
+<div>    
     <div class="row">
         <div class="col align-self-start">
     @* <h1 style="color:white; padding-bottom: 20px;">@ViewData["Title"]</h1> *@
@@ -46,7 +55,7 @@
             </ul>
         </div>
         <div class="col align-self-start">
-            <div class="order-contents" style="background-color: whitesmoke; position: fixed; height: 70vh; width: 20vw; border-radius: 0.5rem;">
+            <div class="order-contents" style="background-color: whitesmoke; height: 70vh; width: 20vw; border-radius: 0.5rem;">
                 <h2 style="color:black; text-align: center;"><b> Your order </b></h2>
                 <p style="text-align: center;"> Total : Rp @Model.CartItemList.Sum(item => item.Price * item.Quantity) </p>
                 <input type="submit" value="Checkout" style="background-color: #ff82c9; margin-left: 5vw; margin-top: 20px; border-radius: 0.5rem; width: 8vw;"/>
@@ -88,3 +97,4 @@
     </div>  
 </div>
 </body>
+}
