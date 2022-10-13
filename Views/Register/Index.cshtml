@@ -2,24 +2,70 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
+<style>
+    p {
+        color: #FF82c9;
+    }
+</style>
 
-<div>
+<body style="background-color: #1e1e1e;">
+    <div style="height: 100vh;">
+        <div class="row">
+            <div class="col sm-6">
+                <div class="flex" style="align-items: center; justify-center: center">
+                    <form method="post" asp-controller="Register" asp-action="Register">
+                        <i class="bi bi-person-circle" style="color: #FF82c9; font-size: 20px;"></i> <input type="text"
+                            name="Name" placeholder="Name" />
+                        <br>
+                        <br>
+                        <i class="bi bi-person-fill" style="color: #FF82c9; font-size: 20px;"></i> <input type="text"
+                            name="Username" placeholder="Username" />
+                        <br>
+                        <br>
+                        <i class="bi bi-envelope-fill" style="color: #FF82c9; font-size: 20px;"></i> <input type="text"
+                            name="Email" placeholder="Email" />
+                        <br>
+                        <br>
+                        <i class="bi bi-lock-fill" style="color: #FF82c9; font-size: 20px;"></i> <input type="password"
+                            name="Password" placeholder="Password" />
+                        <br>
+                        <br>
+                        <i class="bi bi-phone-fill" style="color: #FF82c9; font-size: 20px;"></i> <input type="text"
+                            name="PhoneNumber" placeholder="Phone Number" />
+                        <br>
+                        <br>
+                        <i class="bi bi-pin-map-fill" style="color: #FF82c9; font-size: 20px;"></i> <input type="text"
+                            name="Address" placeholder="Address" />
+                        <br>
+                        <br>
+                        <input type="submit" value="Register" />
+                    </form>
+                </div>
+            </div>
+            <div class="col sm-6">
+                <div style="align-items: center; justify-center: center">
+                    <img src="~/img/logologin1.png" height=100px width=100px>
+                </div>
+            </div>
+        </div>
+        <br>
+        <p style="color: white;"> Already Have Account? <a asp-controller="Login" asp-action="Index"
+                style="color: #FF82c9;"> Login </a></p>
+    </div>
+</body>
+@*
     <form method="post" asp-controller="Register" asp-action="Register">
-    Name <input type="text" name="Name"/>
+    Name <input type="text" name="Name" />
     <br>
-    Username <input type="text" name="Username"/>
+    Username <input type="text" name="Username" />
     <br>
-    Email <input type="text" name="Email"/>
+    Email <input type="text" name="Email" />
     <br>
-    Password <input type="password" name="Password"/>
+    Password <input type="password" name="Password" />
     <br>
-    Phone <input type="text" name="PhoneNumber"/>
+    Phone <input type="text" name="PhoneNumber" />
     <br>
-    Address <input type="text" name="Address"/>
+    Address <input type="text" name="Address" />
     <br>
-    <input type="submit" value="Register"/>
-</form>
-<br>
-Already Have Account? <a asp-controller="Login" asp-action="Index"> Login </a>
-</div>
+    <input type="submit" value="Register" />
+    </form> *@
