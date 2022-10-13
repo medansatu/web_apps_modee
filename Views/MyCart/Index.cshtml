@@ -4,7 +4,7 @@
 }
 
 
-<body style="background-color: #1e1e1e">
+<body style="background-color: #1e1e1e" style="height: 100vh;">
 <div>        
     <div class="row">
         <div class="col align-self-start">
@@ -14,28 +14,31 @@
                 {   
                     <li> 
                         <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width=30% height=100% align=left style="border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem;">
-                        <div style="padding-left:300px;">
-                            <br>
-                            <p style="padding-top:15px; color:black; font-size:16px"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>
-                            <form method="post" asp-controller="MyCart" asp-action="EditCart">
-                            <input type="hidden" value="@item.Id" name="cartitemid"/>
-                            Quantity :  <input type="text" name="quantity" value="@item.Quantity" size="1" style="text-align: center;"/>              
-                            <br>
-                            </form>                             
-                            @* <button type="button" onclick="alert('Hello world!')" style="padding-left:15px; color:black; font-size:16px; weight:30px; height:30px;"> - </button> </p>  *@
-                            <p style="color: black; font-size:15px"> Price : Rp @Html.DisplayFor(modelItem => item.Price) </p> 
-                            <br> 
-                            <p style="color: black; font-size:15px"> Item Total : Rp @(item.Price * @item.Quantity) </p> 
-                            @* <a asp-controller="Login"
-                                asp-action="Index"> *@
-                                <form method="post" asp-controller="MyCart" asp-action="EditCart">                
+                        <div>
+                             <div class="row">
+                                <div class="col-sm-11">
+                                    <br>
+                                    <p style="color:black; font-size:25px"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>
+                                    <br>
+                                    <form method="post" asp-controller="MyCart" asp-action="EditCart">
+                                    <input type="hidden" value="@item.Id" name="cartitemid"/>
+                                    Quantity :  <input type="text" name="quantity" value="@item.Quantity" size="1" style="text-align: center;"/>
+                                    </form>
+                                    <br>
+                                    <p style="color: black; font-size:15px"> Price : Rp @Html.DisplayFor(modelItem => item.Price) </p> 
+                                    <p style="color: black; font-size:15px"> Item Total : Rp @(item.Price * @item.Quantity) </p> 
+                                </div>  
+                                <div class="col-sm-1" style="padding-top: 10px;">                         
+                                     <form method="post" asp-controller="MyCart" asp-action="EditCart">                
                                     <input type="hidden" value="@item.Id" name="cartitemid"/>
                                     <input type="hidden" value="0" name="@item.Quantity"/>
-                                <button type="submit" style="border: none; background-color: whitesmoke;">
-                                <i class=" bi bi-trash-fill" style="color: #ff82c9; font-size: 32px; padding-left: 10px;"></i>
-                                </button>
-                                </form>
-                            @* </a> *@
+                                    <button type="submit" style="border: none; background-color: whitesmoke;">
+                                    <i class=" bi bi-trash-fill" style="color: #ff82c9; font-size: 20px;"></i>
+                                    </button>
+                                    </form>
+                                </div>                          
+                            </div>
+                            <br>
                         </div>       
                     </li>
                     <br>  
@@ -45,29 +48,22 @@
         <div class="col align-self-start">
             <div class="order-contents" style="background-color: whitesmoke; position: fixed; height: 70vh; width: 20vw; border-radius: 0.5rem;">
                 <h2 style="color:black; text-align: center;"><b> Your order </b></h2>
-                 <p style="text-align: center;"> Total : Rp @Model.CartItemList.Sum(item => item.Price * item.Quantity) </p>
+                <p style="text-align: center;"> Total : Rp @Model.CartItemList.Sum(item => item.Price * item.Quantity) </p>
+                <input type="submit" value="Checkout" style="background-color: #ff82c9; margin-left: 5vw; margin-top: 20px; border-radius: 0.5rem; width: 8vw;"/>
+                <br>
+                <br>
+                <p style="text-align: center;"> Payment Method : </p>
+                 <div class="row">
+                        <div class="col">
+                            <div class="column">
+                                <div class="col">
+                                <img src="~/img/Visalogo.png" width="35%">
+                                <img src="~/img/Paypallogo.png" width="35%">  
+                                </div>
+                            </div>
+                        </div>
             </div>
         </div>
     </div>  
 </div>
 </body>
-
-@* @foreach (var item in Model.CartItemList)
-        {
-            <p>
-                @Html.DisplayFor(modeItem => item.ProductName)
-                @Html.DisplayFor(modelItem => item.Price)
-            </p>
-            <form method="post" asp-controller="MyCart" asp-action="EditCart">
-                <input type="hidden" value="@item.Id" name="cartitemid"/>
-                Qty <input type="text" name="quantity" value="@item.Quantity"/>              
-                <br>
-            </form>
-            <form method="post" asp-controller="MyCart" asp-action="EditCart">                
-                <input type="hidden" value="@item.Id" name="cartitemid"/>
-                <input type="hidden" value="0" name="@item.Quantity"/>
-                <input type="submit" value="delete" style="background-color: #ff82c9;"/>
-                </form>
-
-        }
-        <p> Total @Model.CartItemList.Sum(item => item.Price * item.Quantity) </p> *@

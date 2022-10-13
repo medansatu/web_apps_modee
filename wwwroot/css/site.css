@@ -82,6 +82,7 @@ body {
 
   .order-contents h2 {
       color: #fff2cc;
+      border-radius: 0.5rem;
       font-size: 1.3rem;
       font-weight: 300;
       margin-bottom: 1rem;
