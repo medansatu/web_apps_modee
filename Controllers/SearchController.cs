@@ -21,8 +21,7 @@ namespace final_project.Controllers
             _logger = logger;
             _productRespository = productRespository;
         }
-
-        [HttpPost]
+        
         public async Task<IActionResult> Index(string keyword)
         {
             HttpContext.Session.SetString("keyword", keyword);
@@ -31,12 +30,6 @@ namespace final_project.Controllers
             var model = products.Data;
             return View(model);
         }
-
-        // [HttpPost]
-        // public async Task<IActionResult> Seacrh(string keyword)
-        // {
-
-        // }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

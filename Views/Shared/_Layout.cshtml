@@ -62,14 +62,10 @@
                                 asp-action="Accessories">Accessories</a>
                         </li>
                     </ul>
-                    <form class="d-flex" method="post" asp-controller="Search" asp-action="Index">
+                    <form class="d-flex" method="get" asp-controller="Search" asp-action="Index">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
-                        <button class="btn" type="submit" style="background-color: #ff82c9;">Search</button>
-                    </form>
-                    <br>
-                    <a asp-controller="Login"
-                                asp-action="Index">
-                    <i class="bi bi-person-circle" style="color: #ff82c9; font-size: 32px; padding-left: 10px;"></i></a>
+                        <button class="btn" type="submit" style="background-color: #ff82c9; color: white;">Search</button>
+                    </form>                   
                     <br>
                     <a asp-controller="MyWishlist"
                                 asp-action="Index">
@@ -77,7 +73,11 @@
                     <br>
                     <a asp-controller="MyCart"
                                 asp-action="Index">
-                    <i class="bi bi-cart-fill" style="color: #ff82c9; font-size: 32px; padding-left: 10px;"></i></a>                 
+                    <i class="bi bi-cart-fill" style="color: #ff82c9; font-size: 32px; padding-left: 10px;"></i></a>   
+                     <br>
+                    <a asp-controller="Login"
+                                asp-action="Index">
+                    <i class="bi bi-person-circle" style="color: #ff82c9; font-size: 32px; padding-left: 10px;"></i></a>              
                 </div>
             </div>
         </nav>
