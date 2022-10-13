@@ -1,34 +1,70 @@
 @model final_project.Dtos.Wishlist.WishlistDTO
 
 <body style="background-color: #1e1e1e">
-<div>
-    @* <h1 style="color:white; padding-bottom: 20px;">@ViewData["Title"]</h1> *@
+    <div>
+<div class="flex" style="justify-content: center; align-items: center">
             <ul class="list-wishlist">
                 @foreach (var item in Model.WishlistItems)
                 {   
                     <li> 
+                        <a asp-controller="Home" asp-action="ProductId" asp-route-id="@item.ProductId" style="text-decoration: none;">
                         <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width=30% height=100% align=left style="border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem;">
-                        <div style="padding-left:400px;">
+                        <div class="row">
+                            <div class="col-sm-11">
                             <br>
-                            <p style="padding-top:15px; color:black; font-size:30px"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>                            
+                            <p style="color:black; font-size:25px"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>                            
                             @* <button type="button" onclick="alert('Hello world!')" style="padding-left:15px; color:black; font-size:16px; weight:30px; height:30px;"> - </button> </p>  *@
                             <br>
-                            @* <a asp-controller="Login"
-                                asp-action="Index"> *@
+                            </div>  
+                            <div class="col-sm-1" style="padding-top: 20px;">                         
                                 <form method="post" asp-controller="MyWishlist" asp-action="DeleteWishlist">                
                                     <input type="hidden" value="@item.Id" name="id"/>
                                 <button type="submit" style="border: none; background-color: whitesmoke;">
-                                <i class=" bi bi-trash-fill" style="color: #ff82c9; font-size: 32px; padding-left: 10px;"></i>
+                                <i class=" bi bi-trash-fill" style="color: #ff82c9; font-size: 20px; padding-left: 10px;"></i>
                                 </button>
-                                </form>
-                            @* </a> *@
-                        </div>       
+                                </form> 
+                                </div>                          
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                        <form method="post" asp-controller="Home" asp-action="AddToCart">
+                                <input type="hidden" name="productId" value="@item.ProductId">
+                                <button type="submit" class="block" style = "background-color: #ff82c9; border: none; border-radius: 0.5rem; height: 40px;">  <i class="bi bi-cart-fill" style="color: white; font-size: 20px; padding-right: 10px;"></i> <b style="color: white;"> Add To Cart </b> </button>                         
+                            </form>
+                            </div>                          
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                        <p style="color: black;"> Share: </p>
+                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <i class="bi bi-twitter" style="font-size: 30px; color: #00acee;"></i>
+                            </div>
+                            <div class="col-sm-1">
+                                <i class="bi bi-facebook" style="font-size: 30px; color: #3b5998;"></i>
+                            </div>
+                            <div class="col-sm-1">
+                                <i class="bi bi-instagram" style="font-size: 30px; color: #8a3ab9;"></i>
+                            </div>
+                            <div class="col-sm-1">
+                                <i class="bi bi-whatsapp" style="font-size: 30px; color: #25d366;"></i>
+                            </div>
+                            <div class="col-sm-1">
+                                <i class="bi bi-telegram" style="font-size: 30px; color: #0088cc;"></i>
+                            </div>
+                            
+                        </div>
+                        </a>
                     </li>
                     <br>  
                 }  
             </ul>
         </div>
     </div>  
+</div>
 </div>
 </body>
 
