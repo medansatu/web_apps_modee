@@ -45,16 +45,17 @@ namespace final_project.Controllers
                 Password = password
             };
             var user  = await _authRepo.Login(login);
-            if(user != null)
+            if(user.Data == null)
             {               
-                HttpContext.Session.SetString("token", user.Data.Token);
-                // return RedirectToAction("welcome");
-                return RedirectToAction("Index", "Home");
+                ViewData["LoginFlag"] = "Invalid Username or Password";
+                return View("Index");
             }
             else
             {
-                ViewBag.msg = "Invalid";
-                return View("Index");
+                HttpContext.Session.SetString("token", user.Data.Token);
+                // return RedirectToAction("welcome");
+                return RedirectToAction("Index", "Home");
+                
             }
         }
 

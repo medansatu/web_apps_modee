@@ -63,8 +63,8 @@
                         </li>
                     </ul>
                     <form class="d-flex" method="get" asp-controller="Search" asp-action="Index">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
-                        <button class="btn" type="submit" style="background-color: #ff82c9; color: white;">Search</button>
+                        <input class="form-control me-2" type="search" placeholder="Search for Product" aria-label="Search" name="keyword">
+                        @* <button class="btn" type="submit" style="background-color: #ff82c9; color: white;">Search</button> *@
                     </form>                   
                     <br>
                     <a asp-controller="MyWishlist"
@@ -88,11 +88,11 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Modee - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    @* <footer class="border-top footer text-muted">
+        <div class="container" style="display:flex;justify-content:center;align-items:center; color: white;">
+            &copy; 2022 - Modee
         </div>
-    </footer>
+    </footer> *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
