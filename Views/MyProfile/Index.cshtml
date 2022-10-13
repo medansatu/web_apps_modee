@@ -12,7 +12,7 @@
         border-radius: 15px;
     }
 
-    img{
+    img {
         border-radius: 50%;
     }
 </style>
@@ -21,7 +21,14 @@
 <body style="background-color: #1e1e1e;">
     <div class="container" style="justify-content: center; align-items: center">
         <div class="d-flex" style="justify-content: center; align-items: center; box-shadow: #FF82c9">
-            <img src="@Html.DisplayFor(model => model.ImageURL)" style="width:150px;">
+            @if (@Model.ImageURL != null)
+            {
+                <img src="@Html.DisplayFor(model => model.ImageURL)" style="width:150px;">
+            }
+            else
+            {
+                <i class="bi bi-person-circle" style="color: #FF82c9; font-size: 150px;"></i>
+            }
         </div>
         <br>
         <div class="container">
@@ -67,11 +74,11 @@
         </div>
         <br>
         <br>
-        <div style="display:flex; justify-content: center; align-items:center;">            
+        <div style="display:flex; justify-content: center; align-items:center;">
             <button class="block" style="background-color: #FF82c9">
-              <a asp-controller="Login" asp-action="Logout" style="text-decoration: none; color: white;">  
-                Log out 
-              </a>
+                <a asp-controller="Login" asp-action="Logout" style="text-decoration: none; color: white;">
+                    Log out
+                </a>
             </button>
         </div>
     </div>
