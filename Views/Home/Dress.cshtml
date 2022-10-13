@@ -1,9 +1,15 @@
 @* @page *@
 @model IEnumerable<final_project.Dtos.Product.ProductDTO>
 
+@{
+    ViewData["Title"] = "Dress";
+}
+
 <html>
 <body style="background-color: #1e1e1e">
     <div>
+    <h1 style="color: White; text-align: center;">@ViewData["Title"]</h1>
+    <br>
     <ul class="list-cards">
     @foreach (var item in Model)
     {
