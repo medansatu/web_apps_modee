@@ -1,5 +1,8 @@
-@page
+@* @page *@
 @model final_project.Dtos.Product.ProductDTO
+@{
+    ViewData["Title"] = @Model.ProductName;
+}
 
 @* <h1>@Html.DisplayFor(model => model.ProductName)</h1> *@
 <style>
@@ -40,19 +43,19 @@
                             <br>
                             <h4 style="color: #FF82c9;">RP. @Html.DisplayFor(model => model.Price)</h4>
                             <br>
-                            <br>
-                            <br>
-                            <p style="color: white;">@Html.DisplayFor(model => model.Description)</p>
+                            <br>                            
+                            <p style="color: white; white-space: pre;">@Html.DisplayFor(model => model.Description)</p>
                         </div>
+                        <br><br><br> <br><br>
                         <div class="col align-self-end">
                             <form method="post" asp-controller="Home" asp-action="AddToCart">
                                 <input type="hidden" name="productId" value="@Html.DisplayFor(model => model.Id)">
-                            <input type="submit" class="block" style = "background-color: #ff82c9;" value="Add To Cart">                           
+                                <button type="submit" class="block" style = "background-color: #ff82c9;">  <i class="bi bi-cart-fill" style="color: white; font-size: 20px; padding-right: 10px;"></i> <b style="color: white;"> Add To Cart </b> </button>                         
                             </form>
                             <br>
                             <form method="post" asp-controller="Home" asp-action="AddToWishlist">
                                 <input type="hidden" name="productId" value="@Html.DisplayFor(model => model.Id)">
-                            <input type="submit" class="block" style = "background-color: #ff82c9;" value="Add To Wishlist"> 
+                            <button type="submit" class="block" style = "background-color: #ff82c9;"> <i class="bi bi-heart-fill" style="color: white; font-size: 20px; padding-right: 10px;"></i> <b style="color: white;"> Add To Wishlist </b> </button>
                             </form>
                         </div>
                 </div>   
