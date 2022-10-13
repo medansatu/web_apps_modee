@@ -18,7 +18,7 @@
                              <div class="row">
                                 <div class="col-sm-11">
                                     <br>
-                                    <p style="color:black; font-size:25px"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>
+                                    <p style="color:black; font-size:25px;"><b> @Html.DisplayFor(modelItem => item.ProductName) </b></p>
                                     <br>
                                     <form method="post" asp-controller="MyCart" asp-action="EditCart">
                                     <input type="hidden" value="@item.Id" name="cartitemid"/>
@@ -28,7 +28,7 @@
                                     <p style="color: black; font-size:15px"> Price : Rp @Html.DisplayFor(modelItem => item.Price) </p> 
                                     <p style="color: black; font-size:15px"> Item Total : Rp @(item.Price * @item.Quantity) </p> 
                                 </div>  
-                                <div class="col-sm-1" style="padding-top: 10px;">                         
+                                <div class="col-sm-1" style="padding-top: 15px;">                         
                                      <form method="post" asp-controller="MyCart" asp-action="EditCart">                
                                     <input type="hidden" value="@item.Id" name="cartitemid"/>
                                     <input type="hidden" value="0" name="@item.Quantity"/>
@@ -51,17 +51,38 @@
                 <p style="text-align: center;"> Total : Rp @Model.CartItemList.Sum(item => item.Price * item.Quantity) </p>
                 <input type="submit" value="Checkout" style="background-color: #ff82c9; margin-left: 5vw; margin-top: 20px; border-radius: 0.5rem; width: 8vw;"/>
                 <br>
-                <br>
-                <p style="text-align: center;"> Payment Method : </p>
-                 <div class="row">
-                        <div class="col">
-                            <div class="column">
-                                <div class="col">
-                                <img src="~/img/Visalogo.png" width="35%">
-                                <img src="~/img/Paypallogo.png" width="35%">  
-                                </div>
-                            </div>
+                <p style="text-align: center;"> <b> Payment Method : </b> </p>
+                    <div class="row">
+                        <div class="col align-self-start">
+                                <img src="~/img/Visalogo.png" width="50%" style="margin-left: 50px;"> 
                         </div>
+                            <div class="col align-self-start">
+                                <img src="~/img/Paypallogo.png" width="70%">
+                        </div>
+                    </div>
+                    <br>
+                    <img src="~/img/MasterCardlogo.png" width="30%" style="align-self: center;">
+                    <br>
+                    <div class="row" style="margin-left: 30px;">
+                        <div class="col align-self-start">
+                            <img src="~/img/Danalogo.png" width="110%"> 
+                        </div>
+                        <div class="col align-self-start">
+                            <img src="~/img/Ovologo.png" width="60%">
+                        </div>
+                    <br>
+                    <br>
+                    </div>
+                    <img src="~/img/Bcalogo.png" width="45%" style="align-self: center;">
+                    <br>
+                    <div class="row" style="margin-left: 30px;">
+                        <div class="col align-self-start">
+                            <img src="~/img/Livinlogo.png" width="90%"> 
+                        </div>
+                        <div class="col align-self-start">
+                            <img src="~/img/Brimologo.png" width="70%">
+                        </div>
+                    </div>
             </div>
         </div>
     </div>  
