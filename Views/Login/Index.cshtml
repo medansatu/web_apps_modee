@@ -5,21 +5,23 @@
 <body style="background-color: #1e1e1e">
 <div class="container" style="height: 78vh; justify-content: center;">        
     <div class="row">
-        <div class="col align-self-start">
-            <img src="~/img/logologin1.png" alt="Modee" , height="500rem" , width="500rem"/>
+        <div class="col align-self-start" style="margin-top: 30px;">
+            <img src="~/img/logologin1.png" alt="Modee" , height="500rem" , width="500rem" style="margin-left: 170px;"/>
         </div>
-        <div class="col align-self-center">
+        <div class="col align-self-center" style="margin-top: 30px;">
             <form method="post" asp-controller="Login" asp-action="Login">
-                <i class="bi bi-person-circle" style="color: #ff82c9; font-size: 32px; padding-left: 10px;"></i></a>
+                <i class="bi bi-person-circle" style="color: #ff82c9; font-size: 26px; margin-right: 15px;"></i>
                 <input type="text" name="username" placeholder="Username"/>
                 <br>
-                <input type="text" name="password" placeholder="Password"/> 
+                <i class="bi bi-lock-fill" style="color: #ff82c9; font-size: 26px; margin-right: 15px;"></i>
+                <input type="password" name="password" placeholder="Password"/> 
                 <br>
-                <input type="submit" value="Login"/>
+                <input type="submit" value="Login" style="background-color: #ff82c9; margin-left: 5vw; margin-top: 20px; border-radius: 0.5rem; width: 8vw;"/>
+                 @* <button type="button" onclick="alert('Password or Username is incorrect!')" style="padding-left:15px; color:black; font-size:16px; weight:30px; height:30px;"> - </button> </p>  *@
             </form>
             <br>
             
-            <p style="color: white;"> Dont Have An Account? <a asp-controller="Register" asp-action="Index"> </a> Register </a> </p>
+            <p style="color: white;"> Don't Have An Account? <a asp-controller="Register" asp-action="Index" style="color: #ff82c9;"> Register </a> </p>
         </div>
     </div>  
 </div>
