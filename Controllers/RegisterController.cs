@@ -39,7 +39,7 @@ namespace final_project.Controllers
                 PhoneNumber = PhoneNumber
             };
             var id = await _authRepository.Register(register);
-            if(id.Data != null)
+            if(id.Success == true)
             {
                 return RedirectToAction("Index", "Login");
             }
