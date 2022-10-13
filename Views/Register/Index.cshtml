@@ -3,54 +3,63 @@
 }
 
 <style>
-    p {
-        color: #FF82c9;
+    .fullscreen{
+        position: fixed;
+        top: 10.2vh;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    input{
+        border-radius: 0.5rem;
     }
 </style>
 
-<body style="background-color: #1e1e1e;">
-    <div style="height: 100vh;">
+<body>
+    <div class="fullscreen" style="height: 100%; width: 100%; background-color: #1e1e1e;" >
         <div class="row">
-            <div class="col sm-6">
-                <div class="flex" style="align-items: center; justify-center: center">
+            <div class="col sm-6" style="display: flex; height: 100vh; justify-content: center; align-items: center; background-color: #d83e96;">
+                <div>
                     <form method="post" asp-controller="Register" asp-action="Register">
-                        <i class="bi bi-person-circle" style="color: #FF82c9; font-size: 20px;"></i> <input type="text"
+                        <i class="bi bi-person-circle" style="color: #1e1e1e; font-size: 20px;"></i> <input type="text"
                             name="Name" placeholder="Name" />
                         <br>
                         <br>
-                        <i class="bi bi-person-fill" style="color: #FF82c9; font-size: 20px;"></i> <input type="text"
+                        <i class="bi bi-person-fill" style="color: #1e1e1e; font-size: 20px;"></i> <input type="text"
                             name="Username" placeholder="Username" />
                         <br>
                         <br>
-                        <i class="bi bi-envelope-fill" style="color: #FF82c9; font-size: 20px;"></i> <input type="text"
+                        <i class="bi bi-envelope-fill" style="color: #1e1e1e; font-size: 20px;"></i> <input type="text"
                             name="Email" placeholder="Email" />
                         <br>
                         <br>
-                        <i class="bi bi-lock-fill" style="color: #FF82c9; font-size: 20px;"></i> <input type="password"
+                        <i class="bi bi-lock-fill" style="color: #1e1e1e; font-size: 20px;"></i> <input type="password"
                             name="Password" placeholder="Password" />
                         <br>
                         <br>
-                        <i class="bi bi-phone-fill" style="color: #FF82c9; font-size: 20px;"></i> <input type="text"
+                        <i class="bi bi-phone-fill" style="color: #1e1e1e; font-size: 20px;"></i> <input type="text"
                             name="PhoneNumber" placeholder="Phone Number" />
                         <br>
                         <br>
-                        <i class="bi bi-pin-map-fill" style="color: #FF82c9; font-size: 20px;"></i> <input type="text"
+                        <i class="bi bi-pin-map-fill" style="color: #1e1e1e; font-size: 20px;"></i> <input type="text"
                             name="Address" placeholder="Address" />
                         <br>
                         <br>
-                        <input type="submit" value="Register" />
+                        <input type="submit" value="Register" style="color: whitesmoke; background-color: #1e1e1e; width: 8vw"/>
+                        <br>
+                        <br>
+                        <p style="color: #1e1e1e;"> Already Have Account? <a asp-controller="Login" asp-action="Index"
+                                style="color: whitesmoke;"> Login </a></p>
                     </form>
                 </div>
             </div>
-            <div class="col sm-6">
-                <div style="align-items: center; justify-center: center">
-                    <img src="~/img/logologin1.png" height=100px width=100px>
+            <div class="col sm-6" style="display: flex; height: 100vh; align-items: center; justify-content: center;">
+                <div style="display:flex; ">
+                    <img src="~/img/logologin1.png" height=500px width=500px>
                 </div>
             </div>
         </div>
-        <br>
-        <p style="color: white;"> Already Have Account? <a asp-controller="Login" asp-action="Index"
-                style="color: #FF82c9;"> Login </a></p>
     </div>
 </body>
 @*
