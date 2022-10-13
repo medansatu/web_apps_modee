@@ -7,8 +7,9 @@
     .block {
         display: block;
         align-items: center;
-        width: 100%;
+        width: 20%;
         height: 5vh;
+        border-radius: 15px;
     }
 
     img{
@@ -19,7 +20,7 @@
 
 <body style="background-color: #1e1e1e;">
     <div class="container" style="justify-content: center; align-items: center">
-        <div class="d-flex" style="justify-content: center; align-items: center">
+        <div class="d-flex" style="justify-content: center; align-items: center; box-shadow: #FF82c9">
             <img src="@Html.DisplayFor(model => model.ImageURL)" style="width:150px;">
         </div>
         <br>
@@ -29,10 +30,8 @@
             </h1>
         </div>
         <br>
-        <div class="d-flex" style="justify-content: flex-start; align-items: center">
-            <p style="color: white; text-align: center;">
-                Username
-            </p>
+        <div class="d-flex" style="justify-content: center; align-items: center">
+            <i class="bi bi-person-fill" style="color: white; font-size: 20px;"></i>
         </div>
         <div class="d-flex" style="justify-content: center; align-items: center">
             <h5 style="color: #FF82c9; text-align: center;">
@@ -41,21 +40,30 @@
         </div>
         <br>
         <div class="d-flex" style="justify-content: center; align-items: center">
-            <p style="color: #FF82c9; text-align: center;">
+            <i class="bi bi-phone-fill" style="color: white; font-size: 20px;"></i>
+        </div>
+        <div class="d-flex" style="justify-content: center; align-items: center">
+            <h5 style="color: #FF82c9; text-align: center;">
                 @Html.DisplayFor(model => model.PhoneNumber)
-            </p>
+            </h5>
         </div>
         <br>
         <div class="d-flex" style="justify-content: center; align-items: center">
-            <p style="color: #FF82c9; text-align: center;">
+            <i class="bi bi-envelope-fill" style="color: white; font-size: 20px;"></i>
+        </div>
+        <div class="d-flex" style="justify-content: center; align-items: center">
+            <h5 style="color: #FF82c9; text-align: center;">
                 @Html.DisplayFor(model => model.Email)
-            </p>
+            </h5>
         </div>
         <br>
         <div class="d-flex" style="justify-content: center; align-items: center">
-            <p style="color: #FF82c9; text-align: center;">
+            <i class="bi bi-pin-map-fill" style="color: white; font-size: 20px;"></i>
+        </div>
+        <div class="d-flex" style="justify-content: center; align-items: center">
+            <h5 style="color: #FF82c9; text-align: center;">
                 @Html.DisplayFor(model => model.Address)
-            </p>
+            </h5>
         </div>
         <br>
         <br>
