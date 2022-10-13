@@ -38,6 +38,7 @@ namespace final_project.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(string username, string password)
         {
             UserLoginDTO login = new UserLoginDTO {
@@ -69,18 +70,7 @@ namespace final_project.Controllers
         {              
             HttpContext.Session.Remove("token");
             return RedirectToAction("Index");
-        }
-
-        //  public async Task<IActionResult> Index(String username, String password)
-        // {
-        //     UserLoginDTO login = new UserLoginDTO {
-        //         Username = username,
-        //         Password = password
-        //     };
-        //     ServiceResponse<UserDTO> user = await _authRepo.Login(login);
-        //     var model = user.Data;
-        //     return View(model);
-        // }
+        }       
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
