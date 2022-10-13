@@ -1,4 +1,7 @@
 @model final_project.Dtos.Wishlist.WishlistDTO
+@{
+    ViewData["Title"] = "My Wishlist";
+}
 
 <body style="background-color: #1e1e1e">
     <div>
@@ -75,30 +78,3 @@
 </div>
 </div>
 </body>
-
-
-
-
-
-
-
-@* @{
-    ViewData["Title"] = "Index";
-}
-
-<h1>@ViewData["Title"]</h1>
-
-<div>
-    @foreach (var item in Model.WishlistItems)
-    {
-        <p>
-            @Html.DisplayFor(modelItem => item.ProductName)
-            <br>
-            <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" alt="gambar">
-        </p>
-        <form method="post" asp-controller="MyWishlist" asp-action="DeleteWishlist">                
-                <input type="hidden" value="@item.Id" name="id"/>                
-                <input type="submit" value="delete" style="background-color: #ff82c9;"/>
-                </form>
-    }
-</div> *@
