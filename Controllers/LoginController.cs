@@ -39,7 +39,7 @@ namespace final_project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(string username, string password)
+        public async Task<IActionResult> Login(string username, string password, string returnUrl)
         {
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
@@ -59,8 +59,19 @@ namespace final_project.Controllers
             else
             {
                 HttpContext.Session.SetString("token", user.Data.Token);
+                // ViewBag.token = HttpContext.Session.GetString("token");
+                ViewData["SuccessLogin"] = "Success";
+                
+                if(!string.IsNullOrEmpty(returnUrl))
+                {                    
+                    return Redirect(returnUrl);
+                }
+                else{                    
+                    return RedirectToAction("Index", "Home");  
+                }
+                
                 // return RedirectToAction("welcome");
-                return RedirectToAction("Index", "Home");                
+                              
             }
         }
 

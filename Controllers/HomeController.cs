@@ -69,7 +69,7 @@ namespace final_project.Controllers
         public async Task<IActionResult> ProductId(int id)
         {
             ServiceResponse<ProductDTO> product = await _productRepo.GetItembyId(id);
-
+            ViewBag.tokencart = HttpContext.Session.GetString("token") ?? null;
             var seletedProduct = product.Data;
             return View(seletedProduct);
         }
@@ -108,16 +108,16 @@ namespace final_project.Controllers
             AddToCartDTO addCart = new AddToCartDTO {
                 ProductId = productId
             };
-            ViewBag.tokencart = HttpContext.Session.GetString("token") ?? null;
-            if(ViewBag.tokencart == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
-            else
-            {
+            // ViewBag.tokencart = HttpContext.Session.GetString("token") ?? null;
+            // if(ViewBag.tokencart == null)
+            // {
+            //     return RedirectToAction("Index", "Login");
+            // }
+            // else
+            // {
             await _cartRepo.AddCart(addCart);
             return RedirectToAction("Index", "MyCart");
-            }
+            // }
         }
 
         [HttpPost]
@@ -127,16 +127,16 @@ namespace final_project.Controllers
             WishlistItemDTO addWishlist = new WishlistItemDTO {
                 ProductId = productId
             };
-            ViewBag.tokenwishlist = HttpContext.Session.GetString("token") ?? null;
-            if(ViewBag.tokenwishlist == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
-            else
-            {
+            // ViewBag.tokenwishlist = HttpContext.Session.GetString("token") ?? null;
+            // if(ViewBag.tokenwishlist == null)
+            // {
+            //     return RedirectToAction("Index", "Login");
+            // }
+            // else
+            // {
             await _wishlistRepo.AddWishlist(addWishlist);
             return RedirectToAction("Index", "MyWishlist");
-            }
+            // }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

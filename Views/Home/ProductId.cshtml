@@ -6,29 +6,31 @@
 
 @* <h1>@Html.DisplayFor(model => model.ProductName)</h1> *@
 <style>
-    .block{
+    .block {
         display: block;
         width: 100%;
         height: 7vh;
         border-radius: 15px;
     }
 
-    #mydiv{
+    #mydiv {
         position: absolute;
         width: 45%;
         height: 100%;
         display: flex;
         flex-direction: column;
-        @* justify-content: space-between; *@
+    @*justify-content:space-between;*@
     }
-        #mydiv div{
-            height: 30%;
-            width: 100%;
-        }
+
+    #mydiv div {
+        height: 30%;
+        width: 100%;
+    }
 </style>
 
 
 <html>
+
 <body style="background-color: #1e1e1e;">
     <div class="Container" style="background-color: #1e1e1e;">
         <div class="row">
@@ -37,28 +39,63 @@
             </div>
             <div class="col" style="height: 100hv;">
                 <div id="mydiv">
-                        <div class= "col align-self-start">
-                            <h2 style="color: white;">@Html.DisplayFor(model => model.ProductName)</h2>
-                            <br>
-                            <br>
-                            <h4 style="color: #FF82c9;">RP. @Html.DisplayFor(model => model.Price)</h4>
-                            <br>
-                            <br>                            
-                            <p style="color: white; white-space: pre;">@Html.DisplayFor(model => model.Description)</p>
-                        </div>
-                        <br><br><br> <br><br>
-                        <div class="col align-self-end">
+                    <div class="col align-self-start">
+                        <h2 style="color: white;">@Html.DisplayFor(model => model.ProductName)</h2>
+                        <br>
+                        <br>
+                        <h4 style="color: #FF82c9;">RP. @Html.DisplayFor(model => model.Price)</h4>
+                        <br>
+                        <br>
+                        <p style="color: white; white-space: pre;">@Html.DisplayFor(model => model.Description)</p>
+                    </div>
+                    <br><br><br> <br><br><br><br><br><br><br>
+                    <div class="col align-self-end">
+                        @if (ViewBag.tokencart != null)
+                        {
                             <form method="post" asp-controller="Home" asp-action="AddToCart">
                                 <input type="hidden" name="productId" value="@Html.DisplayFor(model => model.Id)">
-                                <button type="submit" class="block" style = "background-color: #ff82c9;">  <i class="bi bi-cart-fill" style="color: white; font-size: 20px; padding-right: 10px;"></i> <b style="color: white;"> Add To Cart </b> </button>                         
+                                <button type="submit" class="block" style="background-color: #ff82c9;"> <i
+                                    class="bi bi-cart-fill"
+                                    style="color: white; font-size: 20px; padding-right: 10px;"></i> <b
+                                    style="color: white;"> Add To Cart </b> </button>
                             </form>
-                            <br>
+                        }
+                        else
+                        {
+                            <form method="post" asp-controller="Login" asp-action="Index"
+                            asp-route-returnUrl="@Context.Request.Path">
+                                <input type="hidden" name="productId" value="@Html.DisplayFor(model => model.Id)">
+                                <button type="submit" class="block" style="background-color: #ff82c9;"> <i
+                                    class="bi bi-cart-fill"
+                                    style="color: white; font-size: 20px; padding-right: 10px;"></i> <b
+                                    style="color: white;"> Add To Cart </b> </button>
+                            </form>
+                        }
+
+                        <br>
+                        @if (ViewBag.tokencart != null)
+                        {
                             <form method="post" asp-controller="Home" asp-action="AddToWishlist">
                                 <input type="hidden" name="productId" value="@Html.DisplayFor(model => model.Id)">
-                            <button type="submit" class="block" style = "background-color: #ff82c9;"> <i class="bi bi-heart-fill" style="color: white; font-size: 20px; padding-right: 10px;"></i> <b style="color: white;"> Add To Wishlist </b> </button>
+                                <button type="submit" class="block" style="background-color: #ff82c9;"> <i
+                                    class="bi bi-heart-fill"
+                                    style="color: white; font-size: 20px; padding-right: 10px;"></i> <b
+                                    style="color: white;"> Add To Wishlist </b> </button>
                             </form>
-                        </div>
-                </div>   
+                        }
+                        else
+                        {
+                            <form method="post" asp-controller="Login" asp-action="Index"
+                            asp-route-returnUrl="@Context.Request.Path">
+                                <input type="hidden" name="productId" value="@Html.DisplayFor(model => model.Id)">
+                                <button type="submit" class="block" style="background-color: #ff82c9;"> <i
+                                    class="bi bi-heart-fill"
+                                    style="color: white; font-size: 20px; padding-right: 10px;"></i> <b
+                                    style="color: white;"> Add To Wishlist </b> </button>
+                            </form>
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     </div>

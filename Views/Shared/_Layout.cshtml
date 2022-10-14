@@ -67,13 +67,27 @@
                         @* <button class="btn" type="submit" style="background-color: #ff82c9; color: white;">Search</button> *@
                     </form>                   
                     <br>
-                    <a asp-controller="MyWishlist"
+                    @if (Context.Session.GetString("token") != null)
+    {
+        <a asp-controller="MyWishlist"
                                 asp-action="Index">
-                    <i class="bi bi-heart-fill" style="color: #ff82c9; font-size: 26px; padding-left: 15px;"></i></a>  
+                    <i class="bi bi-heart-fill" style="color: #ff82c9; font-size: 26px; padding-left: 15px;"></i></a> 
+    } else {
+        <a asp-controller="Login"
+                                asp-action="Index" asp-route-returnUrl="/MyWishlist">
+                    <i class="bi bi-heart-fill" style="color: #ff82c9; font-size: 26px; padding-left: 15px;"></i></a> 
+    }                     
                     <br>
+                    @if (Context.Session.GetString("token") != null)
+    {
                     <a asp-controller="MyCart"
                                 asp-action="Index">
-                    <i class="bi bi-cart-fill" style="color: #ff82c9; font-size: 26px; padding-left: 15px;"></i></a>   
+                    <i class="bi bi-cart-fill" style="color: #ff82c9; font-size: 26px; padding-left: 15px;"></i></a>  
+    } else {
+        <a asp-controller="Login"
+                                asp-action="Index" asp-route-returnUrl="/MyCart">
+                    <i class="bi bi-cart-fill" style="color: #ff82c9; font-size: 26px; padding-left: 15px;"></i></a> 
+    } 
                      <br>
                     <a asp-controller="Login"
                                 asp-action="Index">
