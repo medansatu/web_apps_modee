@@ -30,6 +30,11 @@ namespace final_project.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(string Name, string Username, string Email, string PhoneNumber, string Address, string Password)
         {
+            if (string.IsNullOrWhiteSpace(Name) || string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(PhoneNumber) || string.IsNullOrWhiteSpace(Address) || string.IsNullOrWhiteSpace(Password))
+            {
+                ViewData["RegisterFlag"] = "Please fill all the field";
+                return View("Index");
+            }
             UserRegisterDTO register = new UserRegisterDTO {
                 Name = Name,
                 Username = Username,

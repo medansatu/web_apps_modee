@@ -41,6 +41,11 @@ namespace final_project.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(string username, string password)
         {
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                ViewData["LoginFlag"] = "Please fill all the field";
+                return View("Index");
+            }            
             UserLoginDTO login = new UserLoginDTO {
                 Username = username,
                 Password = password
@@ -55,8 +60,7 @@ namespace final_project.Controllers
             {
                 HttpContext.Session.SetString("token", user.Data.Token);
                 // return RedirectToAction("welcome");
-                return RedirectToAction("Index", "Home");
-                
+                return RedirectToAction("Index", "Home");                
             }
         }
 
